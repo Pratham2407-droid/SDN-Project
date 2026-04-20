@@ -1,51 +1,66 @@
-SDN Dynamic Firewall using POX
-📌 Overview
+# 🚀 SDN Dynamic Firewall using POX
 
-This project implements a Dynamic Firewall using Software Defined Networking (SDN).
-It uses the POX controller with Mininet to monitor network traffic in real time and automatically block hosts that exceed a defined bandwidth threshold.
+## 📌 Overview
+This project implements a **Dynamic Firewall using Software Defined Networking (SDN)** using the **POX controller** and **Mininet**.
 
-🎯 Features
-Real-time traffic monitoring
-Automatic host blocking based on bandwidth
-Auto-unblocking after timeout
-Centralized SDN control (POX)
-Live bandwidth table output
-🧰 Tech Stack
-POX Controller
-Mininet
-Open vSwitch (OVS)
-Python
-🏗️ Topology
-1 Switch (s1)
-5 Hosts (h1–h5)
-Controller at 127.0.0.1:6633
-⚙️ Setup & Execution
-Clean Environment
+The firewall:
+- Monitors real-time traffic
+- Detects high bandwidth usage
+- Blocks malicious hosts automatically
+- Restores access after timeout
+
+---
+
+## 🎯 Objectives
+- Demonstrate SDN-based network security
+- Implement dynamic traffic monitoring
+- Automatically block suspicious hosts
+- Maintain normal traffic for safe hosts
+
+---
+
+## 🧰 Technologies Used
+- POX Controller
+- Mininet
+- Open vSwitch (OVS)
+- Python
+
+---
+
+## 🏗️ Network Topology
+- 1 Switch: `s1`
+- 5 Hosts: `h1, h2, h3, h4, h5`
+- Controller: `127.0.0.1:6633`
+
+---
+
+## ⚙️ COMPLETE SETUP + EXECUTION + TESTING
+
+### 🔹 STEP 1: Clean Everything
+```bash
 pkill -f pox
 sudo mn -c
-Start Controller
+```
+
+### 🔹STEP 2: Start POX Controller
+```bash
 cd ~/pox
 ./pox.py log.level --INFO openflow.of_01 ext.smart_firewall
-Run Topology
+```
+
+### 🔹 STEP 3: Run Mininet Topology
+```bash
+cd ~/pox
 sudo python3 topology.py
-🧪 Testing
-Connectivity Test
+```
+
+### Final Testing
+```bash
 pingall
-Start Server
 h1 iperf -s &
-Normal Traffic
 h2 iperf -c 10.0.0.1 -t 5
-Attack Traffic
 h4 iperf -c 10.0.0.1 -t 10 -b 5M
-Check Blocking
 h1 ping -c 4 10.0.0.4
-
-Expected: 100% packet loss
-
-Check Allowed Host
 h1 ping -c 4 10.0.0.2
-
-Expected: 0% packet loss
-
-View Flow Rules
 sh ovs-ofctl dump-flows s1
+```
