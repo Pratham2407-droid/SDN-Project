@@ -1,6 +1,6 @@
-# 🚀 SDN Dynamic Firewall using POX
+#  SDN Dynamic Host BLocking System
 
-## 📌 Overview
+##  Overview
 This project implements a **Dynamic Firewall using Software Defined Networking (SDN)** using the **POX controller** and **Mininet**.
 
 The firewall:
@@ -11,7 +11,7 @@ The firewall:
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 - Demonstrate SDN-based network security
 - Implement dynamic traffic monitoring
 - Automatically block suspicious hosts
@@ -19,7 +19,7 @@ The firewall:
 
 ---
 
-## 🧰 Technologies Used
+##  Technologies Used
 - POX Controller
 - Mininet
 - Open vSwitch (OVS)
@@ -27,14 +27,14 @@ The firewall:
 
 ---
 
-## 🏗️ Network Topology
+##  Network Topology
 - 1 Switch: `s1`
 - 5 Hosts: `h1, h2, h3, h4, h5`
 - Controller: `127.0.0.1:6633`
 
 ---
 
-## ⚙️ COMPLETE SETUP + EXECUTION + TESTING
+##  COMPLETE SETUP + EXECUTION + TESTING
 
 ### 🔹 STEP 1: Clean Everything
 ```bash
